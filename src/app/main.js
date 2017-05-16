@@ -7,6 +7,7 @@ import Vue from 'vue';
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import App from '../views/example.vue'
+import './main.css';//使用require导入css文件
 
 document.getElementById('root').appendChild(cqx());
 console.log(version);
