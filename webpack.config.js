@@ -7,9 +7,9 @@ var webpack = require('webpack');
 module.exports = {
     devtool: 'eval-source-map',//配置生成Source Maps，选择合适的选项
 
-    entry: __dirname + "/src/app/main.js",   //入口
+    entry: __dirname + "/src/main.js",   //入口
     output: {
-        path: __dirname + "/src/public", //打包好后存放的目录
+        path: __dirname + "/dist/", //打包好后存放的目录
         filename: "bundle.js"   //打包好后的文件名
     },
 
@@ -39,13 +39,17 @@ module.exports = {
             }
         ]
     },
-
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.js'
+        }
+    },
     plugins: [
         new webpack.BannerPlugin("我是无敌的？？？对啊擦屁股")//在这个数组中new一个就可以了
     ],
 
     devServer: {
-        contentBase: "./src/main/resources/public",//本地服务器所加载的页面所在的目录
+        contentBase: "./src/public",//本地服务器所加载的页面所在的目录
         colors: true,//终端中输出结果为彩色
         historyApiFallback: true,//不跳转
         inline: true//实时刷新
